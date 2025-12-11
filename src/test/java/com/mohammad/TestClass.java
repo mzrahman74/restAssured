@@ -27,8 +27,3 @@ public class TestClass {
   }
     }
 
-//public void postRequest() {
-//        String response =given().log().body().when().post().then().statusCode(201).toString();
-//}
-//
-//}
