@@ -1,9 +1,8 @@
 package com.mohammad;
 
 import io.restassured.path.json.JsonPath;
-
 import static io.restassured.RestAssured.given;
-import static io.restassured.RestAssured.reset;
+
 
 public class TestClass {
   public static void main(String[] args) {
@@ -25,10 +24,4 @@ public class TestClass {
     String title = js.getString("title");
     System.out.println(title);
   }
-    }
-
-//public void postRequest() {
-//        String response =given().log().body().when().post().then().statusCode(201).toString();
-//}
-//
-//}
+}
