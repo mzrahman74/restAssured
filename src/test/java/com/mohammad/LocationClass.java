@@ -1,5 +1,6 @@
 package com.mohammad;
 
+import files.ReUsableMethod;
 import files.payload;
 import io.restassured.path.json.JsonPath;
 import org.testng.annotations.Test;
@@ -31,7 +32,7 @@ public class LocationClass {
             .response()
             .asString();
     System.out.println(response);
-    JsonPath js = new JsonPath(response);
+    JsonPath js = ReUsableMethod.rawJson(response);
     String placeId = js.getString("place_id");
     System.out.println(placeId);
 
@@ -71,7 +72,7 @@ public class LocationClass {
             .response()
             .asString();
 
-    JsonPath js1 = new JsonPath(getPlaceResponse);
+   JsonPath js1 = ReUsableMethod.rawJson(getPlaceResponse);
     String newAddress = js1.getString("address");
     System.out.println(newAddress);
   }
