@@ -63,19 +63,28 @@ public class payload {
     public static String AddPlace() {
         return "{\n" +
                 "  \"location\": {\n" +
-                "    \"lat\": 32,6255 ,\n" +
-                "    \"lng\": -97.0875\n" +
+                "    \"lat\": 32.62,\n" +
+                "    \"lng\": -97.08\n" +
                 "  },\n" +
-                "  \"accuracy\": 75,\n" +
-                "  \"name\": \"Mohammad Rah\",\n" +
-                "  \"phone_number\": \"(214) 2222 4464\",\n" +
-                "  \"address\": \"11 test street, Arlington, Tx-76002\",\n" +
+                "  \"accuracy\": 50,\n" +
+                "  \"name\": \"Mohammad Rahman\",\n" +
+                "  \"phone_number\": \"(+1) 211-111-1111\",\n" +
+                "  \"address\": \"Misty Meadow Ln\",\n" +
                 "  \"types\": [\n" +
-                "    \"shoe park\",\n" +
-                "    \"shop\"\n" +
+                "    \"website\",\n" +
+                "    \"visit\"\n" +
                 "  ],\n" +
                 "  \"website\": \"https://webgopros.com\",\n" +
-                "  \"language\": \"ENGLISH-US\"\n" +
+                "  \"language\": \"English-US\"\n" +
                 "}\n";
+    }
+
+    public static String UpdatePlace(String placeId) {
+        return "{\n" +
+                "\t\"place_id\":\""+placeId+"\",\n" +
+                "\t\"address\": \"255 plano street, USA\",\n" +
+                "\t\"key\":\"qaclick123\"\n" +
+                "\t\n" +
+                "}";
     }
 }
