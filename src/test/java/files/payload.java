@@ -87,4 +87,11 @@ public class payload {
                 "\t\n" +
                 "}";
     }
+    public static String postJson() {
+        return "{\n" +
+                "    \"title\": \"Computer\",\n" +
+                "    \"body\": \"IT\",\n" +
+                "    \"userId\": 200\n" +
+                "}";
+    }
 }
