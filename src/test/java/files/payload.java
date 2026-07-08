@@ -94,4 +94,10 @@ public class payload {
                 "    \"userId\": 200\n" +
                 "}";
     }
+    public static String postUser() {
+        return "{\n" +
+                "    \"email\": \"mo.holt@reqres.in\",\n" +
+                "    \"password\": \"password\"\n" +
+                "}";
+    }
 }
