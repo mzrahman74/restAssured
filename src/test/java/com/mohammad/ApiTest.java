@@ -7,6 +7,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import utils.ConfigReader;
 import static io.restassured.RestAssured.given;
+import static org.testng.Assert.assertNotEquals;
 
 public class ApiTest {
     String baseUrl = ConfigReader.get("baseUrl");
@@ -23,9 +24,11 @@ public class ApiTest {
                 .then()
                 .statusCode(200)
                 .extract()
-                .response().getBody().prettyPrint();
+                .response().getBody().asString();
 
-        System.out.println("Response Body: " + res);
+        JsonPath js = ReUsableMethod.rawJson(res);
+        String variant = js.getString("_meta.variant");
+        Assert.assertEquals(variant, "v1_a");
     }
 
   @Test(priority = 2)
@@ -45,10 +48,10 @@ public class ApiTest {
             .response()
             .asString();
     JsonPath js = ReUsableMethod.rawJson(res);
-    String userId = js.getString("id");
+    int userId = js.getInt("id");
     String meta = js.getString("_meta.powered_by");
-    System.out.println(userId);
-    System.out.println(meta);
+    assertNotEquals(userId, 0);
+    Assert.assertEquals(meta, "ReqRes");
   }
 
   @Test(priority = 3)
