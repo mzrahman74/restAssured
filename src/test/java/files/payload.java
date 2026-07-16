@@ -100,4 +100,10 @@ public class payload {
                 "    \"password\": \"password\"\n" +
                 "}";
     }
+    public static String postEmail() {
+        return "{\n" +
+                "    \"email\": \"peter@klaven\"\n" +
+                "    \n" +
+                "}";
+    }
 }
