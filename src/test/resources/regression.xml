@@ -1,0 +1,13 @@
+<suite name="API Suite"
+       parallel="classes"
+       thread-count="3">
+
+    <test name="Regression">
+
+        <packages>
+            <package name="com.mohammad"/>
+        </packages>
+
+    </test>
+
+</suite>
