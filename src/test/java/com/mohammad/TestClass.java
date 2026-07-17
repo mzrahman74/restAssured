@@ -2,22 +2,27 @@ package com.mohammad;
 
 import files.payload;
 import io.restassured.path.json.JsonPath;
+import org.slf4j.Logger;
 import org.testng.annotations.Test;
+import utils.LoggerUtil;
+
 import static org.hamcrest.Matchers.equalTo;
 
 import static io.restassured.RestAssured.*;
 
 
 public class TestClass {
+  private static final Logger log =
+          LoggerUtil.getLogger(TestClass.class);
   public static void main(String[] args) {
 
     String response =
-        given()
+        given().log().all()
             .baseUri("https://jsonplaceholder.typicode.com/")
             .header("Content-type", "application/json")
             .when()
             .get("posts/1")
-            .then()
+            .then().log().all()
             .assertThat()
             .statusCode(200)
             .extract()
@@ -33,7 +38,7 @@ public class TestClass {
 
 @Test (priority = 2)
   public static void postCall() {
-    String res = given().baseUri("https://jsonplaceholder.typicode.com/").header("Content-Type", "application/json").body(payload.postJson()).
+    String res = given().log().all().baseUri("https://jsonplaceholder.typicode.com/").header("Content-Type", "application/json").body(payload.postJson()).
             when().post("posts").then().assertThat().statusCode(201).body("title", equalTo("Computer"), "body", equalTo("IT")).extract().response().asString();
 
     JsonPath js = new JsonPath(res);

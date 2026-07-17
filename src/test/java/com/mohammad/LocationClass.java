@@ -3,13 +3,17 @@ package com.mohammad;
 import files.ReUsableMethod;
 import files.payload;
 import io.restassured.path.json.JsonPath;
+import org.slf4j.Logger;
 import org.testng.annotations.Test;
 import utils.ConfigReader;
+import utils.LoggerUtil;
 
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
 
 public class LocationClass {
+    private static final Logger log =
+            LoggerUtil.getLogger(LocationClass.class);
   @Test(priority = 1)
   public static void postPlace() {
 

@@ -8,20 +8,24 @@ import org.testng.annotations.Test;
 import utils.ConfigReader;
 import static io.restassured.RestAssured.given;
 import static org.testng.Assert.assertNotEquals;
+import org.slf4j.Logger;
+import utils.LoggerUtil;
 
 public class ApiTest {
+    private static final Logger log =
+            LoggerUtil.getLogger(ApiTest.class);
     String baseUrl = ConfigReader.get("baseUrl");
     String customHeader = ConfigReader.get("header_value");
 
-    @Test(priority = 1, description = "get method for /users/1")
+    @Test(priority = 1, description = "get method for /users/1", groups = "smoke")
     public void testGetRequest() {
 
-       String  res = given()
+       String  res = given().log().all()
                 .baseUri(baseUrl)
                 .header("x-api-key", customHeader)
                 .when()
                 .get("/users/1")
-                .then()
+                .then().log().all()
                 .statusCode(200)
                 .extract()
                 .response().getBody().asString();
@@ -34,14 +38,14 @@ public class ApiTest {
   @Test(priority = 2, description = "post method create user")
   public void testPostRequest() {
     String res =
-        given()
+        given().log().all()
             .baseUri(baseUrl)
             .contentType("application/json")
             .header("x-api-key", customHeader)
             .body(payload.postUser())
             .when()
             .post("/users")
-            .then()
+            .then().log().all()
             .assertThat()
             .statusCode(201)
             .extract()
@@ -54,15 +58,15 @@ public class ApiTest {
     Assert.assertEquals(meta, "ReqRes");
   }
 
-  @Test(priority = 3, description = "get method all users")
+  @Test(priority = 3, description = "get method all users", groups = "smoke")
   public void GetRequest() {
     String response =
-        given()
+        given().log().all()
             .baseUri(baseUrl)
             .header("x-api-key", customHeader)
             .when()
             .get("/users")
-            .then()
+            .then().log().all()
             .statusCode(200)
             .extract()
             .response()
@@ -73,9 +77,9 @@ public class ApiTest {
     Assert.assertEquals(total, 12);
     Assert.assertEquals(email, "charles.morris@reqres.in");
   }
-  @Test(priority = 4, description = "post method login unsuccessful")
+  @Test(priority = 4, description = "post method login unsuccessful", groups = "smoke")
     public void PostRequest() {
-        String response = given().baseUri(baseUrl).contentType("application/json").header("x-api-key", customHeader)
+        String response = given().log().all().baseUri(baseUrl).contentType("application/json").header("x-api-key", customHeader)
                 .body(payload.postEmail()).when().post("/login").then().statusCode(400).extract()
                 .response().asString();
         JsonPath js = ReUsableMethod.rawJson(response);
