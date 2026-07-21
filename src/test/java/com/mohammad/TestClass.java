@@ -28,7 +28,7 @@ public class TestClass {
             .extract()
             .response()
             .asString();
-    System.out.println(response);
+   // System.out.println(response);
     JsonPath js = new JsonPath(response);
     String title = js.getString("title");
     String id = js.getString("id");
