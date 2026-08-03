@@ -77,13 +77,26 @@ public class ApiTest {
     Assert.assertEquals(total, 12);
     Assert.assertEquals(email, "charles.morris@reqres.in");
   }
+
   @Test(priority = 4, description = "post method login unsuccessful", groups = "smoke")
-    public void PostRequest() {
-        String response = given().log().all().baseUri(baseUrl).contentType("application/json").header("x-api-key", customHeader)
-                .body(payload.postEmail()).when().post("/login").then().statusCode(400).extract()
-                .response().asString();
-        JsonPath js = ReUsableMethod.rawJson(response);
-        String error = js.getString("error");
-        Assert.assertEquals(error, "Missing password");
+  public void PostRequest() {
+    String response =
+        given()
+            .log()
+            .all()
+            .baseUri(baseUrl)
+            .contentType("application/json")
+            .header("x-api-key", customHeader)
+            .body(payload.postEmail())
+            .when()
+            .post("/login")
+            .then()
+            .statusCode(400)
+            .extract()
+            .response()
+            .asString();
+    JsonPath js = ReUsableMethod.rawJson(response);
+    String error = js.getString("error");
+    Assert.assertEquals(error, "Missing password");
   }
 }

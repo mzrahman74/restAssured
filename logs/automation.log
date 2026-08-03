@@ -1,7 +1,0 @@
-2026-07-17 12:38:41 INFO  org.testng.internal.Utils - [XmlSuite] [WARN] 'parallel' value 'false' is no longer valid, defaulting to 'none'.
-2026-07-17 12:38:41 WARN  org.testng.xml.TestNGContentHandler - It is strongly recommended to add "<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.1.dtd" >" at the top of the suite file [/Users/mohammadziaurrahman/restAssured/src/test/resources/regression.xml] otherwise TestNG may fail or not work as expected.
-2026-07-17 13:31:51 INFO  org.testng.internal.Utils - [TestNG] Running:
-  /Users/mohammadziaurrahman/Library/Caches/JetBrains/IdeaIC2025.1/temp-testng-customsuite.xml
-
-2026-07-17 13:38:06 INFO  org.testng.internal.Utils - [XmlSuite] [WARN] 'parallel' value 'false' is no longer valid, defaulting to 'none'.
-2026-07-17 13:38:06 WARN  org.testng.xml.TestNGContentHandler - It is strongly recommended to add "<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.1.dtd" >" at the top of the suite file [/Users/mohammadziaurrahman/restAssured/src/test/resources/regression.xml] otherwise TestNG may fail or not work as expected.

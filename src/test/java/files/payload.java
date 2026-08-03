@@ -106,4 +106,10 @@ public class payload {
                 "    \n" +
                 "}";
     }
+    public static String putBody() {
+        return "{\"userId\": 1, \n" +
+                "\"id\": 2,\n" +
+                "\"title\":\"qui est esse\",\n" +
+                "\"body\":\"New post\"}";
+    }
 }
